@@ -1,9 +1,58 @@
 import React, { useState } from "react";
 import "./GetStart.css";
 import { FaCheckCircle } from "react-icons/fa";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function GetStart() {
+  /* =====declaration useState======= */
   const [role, setRole] = useState("founder");
+  const[name,setName]=useState("")
+  const[email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
+  const[phone,setPhone]=useState("")
+ const [joinCode, setJoinCode] = useState("")
+
+   
+
+  const [error,setError]=useState("");
+  const navigate = useNavigate();
+/* =======Stockage es valeur du front ============= */
+const handleNameChange = (e) => {
+  setName(e.target.value)
+}
+
+const handleEmailChange = (e) => {
+  setEmail(e.target.value)
+}
+
+const handlePasswordChange = (e) => {
+  setPassword(e.target.value)
+}
+
+const handlephoneChange = (e) => {
+  setPhone(e.target.value)
+}
+
+const handlejoinCodeChange = (e) => {
+  setJoinCode(e.target.value)
+}
+
+
+/* ========Fonction=============== */
+  const registeremployee=async()=>{
+    try{
+      const response =await  axios.post("http://localhost:5001/user/register",{name, email, password,phone,joinCode})
+       setError("Waiting to be approved by the founder");
+       setTimeout(() => {
+        navigate("/");
+        }, 3000);
+
+    }
+    catch(error){
+       setError(error.response.data.message || "Server error");
+    }
+  }
 
   return (
     <div className="devisé">
@@ -25,6 +74,7 @@ function GetStart() {
           </button>
         </div>
         {role === "employee" ? (
+          /* ====================== EMPLOYEE ========================== */
           <div className="form-container">
             <h2>Join an Existing Company</h2>
             <p>
@@ -34,37 +84,38 @@ function GetStart() {
 
             <div className="form-group">
               <label>Full Name</label>
-              <input type="text" />
+              <input type="text" value={name} onChange={handleNameChange}/>
             </div>
 
             <div className="form-group">
               <label>Work Email</label>
-              <input type="email" />
+              <input type="email" value={email}  onChange={handleEmailChange}/>
             </div>
 
             <div className="form-group">
               <label>Phone Number</label>
-              <input type="number" />
+              <input type="number" value={phone} onChange={handlephoneChange}/>
             </div>
 
             <div className="form-group">
               <label>Password</label>
-              <input type="password" />
+              <input type="password" value={password} onChange={handlePasswordChange} />
             </div>
 
             <div className="form-group">
               <label>Company Invitation Code</label>
-              <input type="text" />
+              <input type="text" value={joinCode} onChange={handlejoinCodeChange} />
             </div>
 
             <label className="checkbox">
               <input type="checkbox" />
               <span>I agree to Terms & Privacy Policy</span>
             </label>
-
-            <button className="submit-btn">Create Account</button>
+            <p id="error-message">{error}</p>
+            <button className="submit-btn" onClick={registeremployee}>Create Account</button>
           </div>
         ) : (
+          /* ============= FOUNDER ============================ */
           <div className="form-container">
             <h2>Create Your Company Workspace</h2>
             <p>Set up your company and invite your team.</p>
@@ -73,22 +124,22 @@ function GetStart() {
 
             <div className="form-group">
               <label>Full Name</label>
-              <input type="text" />
+              <input type="text" value={name} onChange={handleNameChange}/>
             </div>
 
             <div className="form-group">
               <label>Email</label>
-              <input type="email" />
+              <input type="email" value={email}  onChange={handleEmailChange}/>
             </div>
 
             <div className="form-group">
               <label>Password</label>
-              <input type="password" />
+              <input type="password" value={password} onChange={handlePasswordChange} />
             </div>
 
             <div className="form-group">
               <label>Phone</label>
-              <input type="number" />
+              <input type="number" value={phone} onChange={handlephoneChange} />
             </div>
 
             <h3>Company Information</h3>

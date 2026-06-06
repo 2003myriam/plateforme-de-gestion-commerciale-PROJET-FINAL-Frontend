@@ -150,6 +150,14 @@ body {
   font-size: 15px;
 }
 
+
+#error-message{
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: start;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px){
   .devisé{

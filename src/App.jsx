@@ -6,8 +6,7 @@ import GetStart from './pages/GetStart.jsx/GetStart';
  
  
 function App() {
-
-  console.log("HOT RELOAD TEST");
+ 
 
   return (
     <>
