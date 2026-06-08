@@ -12,7 +12,7 @@ import { GrSchedules } from "react-icons/gr";
 function SideBar() {
    return (
    <Sidebar
-  breakPoint="md"
+  breakPoint="sm"
   rootStyles={{
     border: "none",
     borderRadius:"none",

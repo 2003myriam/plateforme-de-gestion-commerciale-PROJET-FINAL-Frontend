@@ -78,7 +78,7 @@ body {
   color: #374151;
 }
 
-.form-group input{
+.form-group input,.role-selection{
   padding: 10px;
   border: 1px solid #d1d5db;
   border-radius: 6px;

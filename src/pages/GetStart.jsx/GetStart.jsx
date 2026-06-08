@@ -6,77 +6,88 @@ import { useNavigate } from "react-router-dom";
 
 function GetStart() {
   /* =====declaration useState======= */
-  const [role, setRole] = useState("founder");
-  const[name,setName]=useState("")
-  const[email,setEmail]=useState("")
-  const [password,setPassword]=useState("")
-  const[phone,setPhone]=useState("")
- const [joinCode, setJoinCode] = useState("")
- const [companyName,setCompanyName]=useState("")
- const [companyEmail,setCompanyEmail]=useState("")
+  const [userType, setUserType] = useState("founder");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [joinCode, setJoinCode] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [companyEmail, setCompanyEmail] = useState("");
+  const [role, setRole] = useState("employee");
+  const roles = [
+    { value: "employee", label: "Employee" },
+    { value: "customer_service", label: "customer_service" },
+    { value: "product_manager", label: "product_manager" },
+    { value: "accountant", label: "accountant" },
+    { value: "hr", label: "hr" },
+  ];
 
-   
-
-  const [error,setError]=useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
-/* =======Stockage es valeur du front ============= */
-const handleNameChange = (e) => {
-  setName(e.target.value)
-}
+  /* =======Stockage es valeur du front ============= */
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
 
-const handleEmailChange = (e) => {
-  setEmail(e.target.value)
-}
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-const handlePasswordChange = (e) => {
-  setPassword(e.target.value)
-}
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
-const handlephoneChange = (e) => {
-  setPhone(e.target.value)
-}
+  const handlephoneChange = (e) => {
+    setPhone(e.target.value);
+  };
 
-const handlejoinCodeChange = (e) => {
-  setJoinCode(e.target.value)
-}
+  const handlejoinCodeChange = (e) => {
+    setJoinCode(e.target.value);
+  };
 
-const handelcompanynamechange=(e)=>{
-  setCompanyName(e.target.value)
-}
+  const handelcompanynamechange = (e) => {
+    setCompanyName(e.target.value);
+  };
 
-const handelcompanyemailchange=(e)=>{
-  setCompanyEmail(e.target.value)
-}
+  const handelcompanyemailchange = (e) => {
+    setCompanyEmail(e.target.value);
+  };
 
-/* ========Fonction=============== */
+  /* ========Fonction=============== */
 
-/* ===============REGISTER EMPLOYEE ================= */
-  const registeremployee=async()=>{
-    try{
-      const response =await  axios.post("http://localhost:5001/user/register",{name, email, password,phone,joinCode})
-       setError("Waiting to be approved by the founder");
-       setTimeout(() => {
+  /* ===============REGISTER EMPLOYEE ================= */
+  const registeremployee = async () => {
+    try {
+      const response = await axios.post("http://localhost:5001/user/register", {
+        name,
+        email,
+        password,
+        phone,
+        joinCode,
+        role,
+      });
+      setError("Waiting to be approved by the founder");
+      setTimeout(() => {
         navigate("/");
-        }, 3000);
-
+      }, 3000);
+    } catch (error) {
+      setError(error.response.data.message || "Server error");
     }
-    catch(error){
-       setError(error.response.data.message || "Server error");
-    }
-  }
+  };
 
   /* ===============REGISTER FOUNDER ================= */
-  const registerfounder=async()=>{
-    try{
-      const response =await  axios.post("http://localhost:5001/user/getstarted",{name, email, password,phone,companyName,companyEmail})
-        navigate("/dashboard");
- 
-
+  const registerfounder = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5001/user/getstarted",
+        { name, email, password, phone, companyName, companyEmail },
+      );
+      navigate("/dashboard");
+    } catch (error) {
+      setError(error.response.data.message || "Server error");
     }
-    catch(error){
-       setError(error.response.data.message || "Server error");
-    }
-  }
+  };
 
   return (
     <div className="devisé">
@@ -84,20 +95,20 @@ const handelcompanyemailchange=(e)=>{
       <div className="register-gauche">
         <div className="role-switch">
           <button
-            className={`toggle-btn ${role === "employee" ? "active" : ""}`}
-            onClick={() => setRole("employee")}
+            className={`toggle-btn ${userType === "employee" ? "active" : ""}`}
+            onClick={() => setUserType("employee")}
           >
             Join a Company
           </button>
 
           <button
-            className={`toggle-btn ${role === "founder" ? "active" : ""}`}
-            onClick={() => setRole("founder")}
+            className={`toggle-btn ${userType === "founder" ? "active" : ""}`}
+            onClick={() => setUserType("founder")}
           >
             Create a Company
           </button>
         </div>
-        {role === "employee" ? (
+        {userType === "employee" ? (
           /* ====================== EMPLOYEE ========================== */
           <div className="form-container">
             <h2>Join an Existing Company</h2>
@@ -108,27 +119,47 @@ const handelcompanyemailchange=(e)=>{
 
             <div className="form-group">
               <label>Full Name</label>
-              <input type="text" value={name} onChange={handleNameChange}/>
+              <input type="text" value={name} onChange={handleNameChange} />
             </div>
 
             <div className="form-group">
               <label>Work Email</label>
-              <input type="email" value={email}  onChange={handleEmailChange}/>
+              <input type="email" value={email} onChange={handleEmailChange} />
             </div>
 
             <div className="form-group">
               <label>Phone Number</label>
-              <input type="number" value={phone} onChange={handlephoneChange}/>
+              <input type="number" value={phone} onChange={handlephoneChange} />
             </div>
 
             <div className="form-group">
               <label>Password</label>
-              <input type="password" value={password} onChange={handlePasswordChange} />
+              <input
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Role</label>
+
+              <select className="role-selection"  value={role} onChange={(e) => setRole(e.target.value)}>
+                {roles.map((r) => (
+                  <option key={r.value} value={r.value}>
+                    {r.label}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="form-group">
               <label>Company Invitation Code</label>
-              <input type="text" value={joinCode} onChange={handlejoinCodeChange} />
+              <input
+                type="text"
+                value={joinCode}
+                onChange={handlejoinCodeChange}
+              />
             </div>
 
             <label className="checkbox">
@@ -136,7 +167,9 @@ const handelcompanyemailchange=(e)=>{
               <span>I agree to Terms & Privacy Policy</span>
             </label>
             <p id="error-message">{error}</p>
-            <button className="submit-btn" onClick={registeremployee}>Create Account</button>
+            <button className="submit-btn" onClick={registeremployee}>
+              Create Account
+            </button>
           </div>
         ) : (
           /* ============= FOUNDER ============================ */
@@ -148,17 +181,21 @@ const handelcompanyemailchange=(e)=>{
 
             <div className="form-group">
               <label>Full Name</label>
-              <input type="text" value={name} onChange={handleNameChange}/>
+              <input type="text" value={name} onChange={handleNameChange} />
             </div>
 
             <div className="form-group">
               <label>Email</label>
-              <input type="email" value={email}  onChange={handleEmailChange}/>
+              <input type="email" value={email} onChange={handleEmailChange} />
             </div>
 
             <div className="form-group">
               <label>Password</label>
-              <input type="password" value={password} onChange={handlePasswordChange} />
+              <input
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
             </div>
 
             <div className="form-group">
@@ -170,12 +207,20 @@ const handelcompanyemailchange=(e)=>{
 
             <div className="form-group">
               <label>Company Name</label>
-              <input type="text"  value={companyName} onChange={handelcompanynamechange}/>
+              <input
+                type="text"
+                value={companyName}
+                onChange={handelcompanynamechange}
+              />
             </div>
 
             <div className="form-group">
               <label>Company Email</label>
-              <input type="email" value={companyEmail} onChange={handelcompanyemailchange} />
+              <input
+                type="email"
+                value={companyEmail}
+                onChange={handelcompanyemailchange}
+              />
             </div>
 
             <label className="checkbox">
@@ -184,7 +229,9 @@ const handelcompanyemailchange=(e)=>{
             </label>
             <p id="error-message">{error}</p>
 
-            <button className="submit-btn" onClick={registerfounder}>Create Company</button>
+            <button className="submit-btn" onClick={registerfounder}>
+              Create Company
+            </button>
           </div>
         )}
       </div>
@@ -197,13 +244,19 @@ const handelcompanyemailchange=(e)=>{
           performance in real time.
         </p>
         <ul>
-          <li><FaCheckCircle /> Real-time order tracking</li>
-          <li><FaCheckCircle /> Automated stock alerts</li>
-          <li><FaCheckCircle /> Smart task assignment</li>
-          <li><FaCheckCircle /> Planning and schedule management</li>
-          
+          <li>
+            <FaCheckCircle /> Real-time order tracking
+          </li>
+          <li>
+            <FaCheckCircle /> Automated stock alerts
+          </li>
+          <li>
+            <FaCheckCircle /> Smart task assignment
+          </li>
+          <li>
+            <FaCheckCircle /> Planning and schedule management
+          </li>
         </ul>
-       
       </div>
     </div>
   );
