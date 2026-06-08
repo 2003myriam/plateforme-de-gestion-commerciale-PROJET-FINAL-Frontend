@@ -12,6 +12,8 @@ function GetStart() {
   const [password,setPassword]=useState("")
   const[phone,setPhone]=useState("")
  const [joinCode, setJoinCode] = useState("")
+ const [companyName,setCompanyName]=useState("")
+ const [companyEmail,setCompanyEmail]=useState("")
 
    
 
@@ -38,8 +40,17 @@ const handlejoinCodeChange = (e) => {
   setJoinCode(e.target.value)
 }
 
+const handelcompanynamechange=(e)=>{
+  setCompanyName(e.target.value)
+}
+
+const handelcompanyemailchange=(e)=>{
+  setCompanyEmail(e.target.value)
+}
 
 /* ========Fonction=============== */
+
+/* ===============REGISTER EMPLOYEE ================= */
   const registeremployee=async()=>{
     try{
       const response =await  axios.post("http://localhost:5001/user/register",{name, email, password,phone,joinCode})
@@ -47,6 +58,19 @@ const handlejoinCodeChange = (e) => {
        setTimeout(() => {
         navigate("/");
         }, 3000);
+
+    }
+    catch(error){
+       setError(error.response.data.message || "Server error");
+    }
+  }
+
+  /* ===============REGISTER FOUNDER ================= */
+  const registerfounder=async()=>{
+    try{
+      const response =await  axios.post("http://localhost:5001/user/getstarted",{name, email, password,phone,companyName,companyEmail})
+        navigate("/dashboard");
+ 
 
     }
     catch(error){
@@ -146,20 +170,21 @@ const handlejoinCodeChange = (e) => {
 
             <div className="form-group">
               <label>Company Name</label>
-              <input type="text" />
+              <input type="text"  value={companyName} onChange={handelcompanynamechange}/>
             </div>
 
             <div className="form-group">
               <label>Company Email</label>
-              <input type="email" />
+              <input type="email" value={companyEmail} onChange={handelcompanyemailchange} />
             </div>
 
             <label className="checkbox">
               <input type="checkbox" />
               <span>I agree to Terms & Privacy Policy</span>
             </label>
+            <p id="error-message">{error}</p>
 
-            <button className="submit-btn">Create Company</button>
+            <button className="submit-btn" onClick={registerfounder}>Create Company</button>
           </div>
         )}
       </div>

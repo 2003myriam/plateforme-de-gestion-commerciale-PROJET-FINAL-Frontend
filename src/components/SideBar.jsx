@@ -1,0 +1,106 @@
+import React from 'react'
+import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { Link } from "react-router-dom";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { FaTasks } from "react-icons/fa";
+import { SlPeople } from "react-icons/sl";
+import { RxPeople } from "react-icons/rx";
+import { FiShoppingBag } from "react-icons/fi";
+import { AiOutlineProduct } from "react-icons/ai";
+import { RiCalendarScheduleFill } from "react-icons/ri";
+import { GrSchedules } from "react-icons/gr";
+function SideBar() {
+   return (
+   <Sidebar
+  breakPoint="md"
+  rootStyles={{
+    border: "none",
+    borderRadius:"none",
+    width: "260px",
+    minWidth: "260px",
+
+    [".ps-sidebar-container"]: {
+      backgroundColor: "#f9fafb",
+      borderRight: "1px solid #e5e7eb",
+      padding: "15px 10px",
+    },
+  }}
+>
+  <Menu
+    menuItemStyles={{
+      button: {
+        borderRadius: "12px",
+        marginBottom: "6px",
+        padding: "12px 14px",
+        backgroundColor: "#f9fafb",
+        color: "#091211",
+        fontSize: "15px",
+        fontWeight: 500,
+        transition: "all 0.25s ease",
+
+        "&:hover": {
+          backgroundColor: "#c3c7fd",
+          color: "#5c63c8",
+        },
+      },
+
+      icon: {
+        color: "#5c63c8",
+        fontSize: "18px",
+      },
+    }}
+  >
+    
+
+    <h6
+      style={{
+        color: "#6b7280",
+        padding: "0 14px",
+        marginBottom: "10px",
+        textTransform: "uppercase",
+        letterSpacing: "1px",
+        fontSize: "11px",
+      }}
+    >
+      Commerce
+    </h6>
+
+    <MenuItem icon={<LuLayoutDashboard />}>
+      Dashboard
+    </MenuItem>
+
+    <MenuItem icon={<FiShoppingBag />}>Orders</MenuItem>
+    <MenuItem icon={ <RxPeople />}>Customers</MenuItem>
+    <MenuItem icon={<AiOutlineProduct />}> Products</MenuItem>
+
+    <h6
+      style={{
+        color: "#6b7280",
+        padding: "20px 14px 10px",
+        textTransform: "uppercase",
+        letterSpacing: "1px",
+        fontSize: "11px",
+      }}
+    >
+      Human Resources
+    </h6>
+
+    <MenuItem icon={<SlPeople />}> Employees</MenuItem>
+    <MenuItem icon={<GrSchedules />}>Leave Requests</MenuItem>
+    <MenuItem icon={<RiCalendarScheduleFill />}>Schedule</MenuItem>
+    <MenuItem icon={<FaTasks />}> Tasks</MenuItem>
+  
+    <SubMenu label="TypeScript + React">
+  <MenuItem>Setup React + TypeScript</MenuItem>
+  <MenuItem>Typing Props</MenuItem>
+  <MenuItem>Typing useState</MenuItem>
+  <MenuItem>Typing useEffect</MenuItem>
+  <MenuItem>Typing Events</MenuItem>
+</SubMenu>
+
+  </Menu>
+</Sidebar>
+  );
+}
+
+export default SideBar
