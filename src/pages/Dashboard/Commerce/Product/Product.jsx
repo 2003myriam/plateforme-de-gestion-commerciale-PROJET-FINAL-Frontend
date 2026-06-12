@@ -2,11 +2,17 @@ import React from "react";
 import { IoMdAdd } from "react-icons/io";
 import "./Product.css"
 import AddProductModel from "../../../../components/Product/AddProductModel";
+import AddCtagoryModel from "../../../../components/Product/AddCtagoryModel";
 function Product() {
- const [open, setOpen] = React.useState(false);
+ const [openP, setOpenP] = React.useState(false);
+ const [openC, setOpenC] = React.useState(false);
 
-const handleOpen = () => setOpen(true);
-const handleClose = () => setOpen(false);
+const handleOpenProduct = () => setOpenP(true);
+const handleCloseProduct = () => setOpenP(false);
+
+const handleOpenCategory = () => setOpenC(true);
+const handleCloseCategory = () => setOpenC(false);
+
   return (
     
     <>
@@ -16,21 +22,16 @@ const handleClose = () => setOpen(false);
           <p>Manage your catalog and track your stock levels.</p>
         </div>
         <div className="product-2btn">
-        <button className="product-btn" onClick={handleOpen}>
+        <button className="product-btn" onClick={handleOpenProduct}>
           <IoMdAdd />
           New product
         </button>
-          {open && <AddProductModel onClose={handleClose} />}
-
-
-
-
-
-
-        {/* <button className="product-btn">
+          {openP && <AddProductModel onClose={handleCloseProduct} />}
+         <button className="product-btn" onClick={handleOpenCategory}>
           <IoMdAdd />
           New category
-        </button> */}
+        </button> 
+        {openC && <AddCtagoryModel onClose={handleCloseCategory} />}
         </div>
        
       </div>
