@@ -4,6 +4,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import GetStart from './pages/GetStart.jsx/GetStart';
 import Dashboard from './pages/Dashboard/Dashboard';
+import Product from './pages/Dashboard/Commerce/Product/Product';
  
  
 function App() {
@@ -19,7 +20,7 @@ function App() {
        {/* Layout Dashboard */}
         <Route path="/dashboard" element={<Dashboard/>}>
            <Route index element={<h1>hey</h1>} />
-           
+           <Route path="product" element={<Product/>}/>
         </Route>
      </Routes>
      

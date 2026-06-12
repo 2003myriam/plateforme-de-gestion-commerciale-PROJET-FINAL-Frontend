@@ -1,0 +1,78 @@
+/* background overlay */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999; /* pour que soit en premier plan avant le side bar */
+}
+/* box modal */
+.modal-content {
+  width: 500px;
+  background:#f9fafb;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* title */
+.modal-title {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* inputs */
+.modal-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.modal-input:focus {
+  border-color: #9FA1FF;
+}
+
+/* buttons container */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* ADD button */
+.btn-add {
+  padding: 10px 14px;
+  border: none;
+  background: #9FA1FF;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-add:hover {
+  background: #6365d2;
+}
+
+/* cancel button */
+.btn-cancel {
+  padding: 10px 14px;
+  border: none;
+  background: #eee;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #ddd;
+}
