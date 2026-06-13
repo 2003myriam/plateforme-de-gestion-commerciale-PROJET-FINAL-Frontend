@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { IoMdAdd } from "react-icons/io";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import "./Product.css";
 import AddProductModel from "../../../../components/Product/AddProductModel";
 import AddCtagoryModel from "../../../../components/Product/AddCtagoryModel";
-/* import { FaTrashCan } from "react-icons/fa6"; */
+ import { FaTrashCan } from "react-icons/fa6"; 
 import axios from "axios";
 function Product() {
   const [openP, setOpenP] = useState(false);
   const [openC, setOpenC] = useState(false);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
+  const [refresh, setRefresh] = useState(false);
   const handleOpenProduct = () => setOpenP(true);
   const handleCloseProduct = () => setOpenP(false);
 
@@ -40,7 +40,32 @@ function Product() {
   };
   useEffect(() => {
     gettingproducts();
-  }, []);
+  }, [refresh]);
+
+   /* ================================== */
+  /* ======== delete product===== */
+  /* =============================== */
+  const deleteproduct = async (id) => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await axios.delete(
+        `http://localhost:5001/products/product/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      setProducts((prev) => prev.filter((p) => p._id !== id));
+      setError("");
+    } catch (error) {
+      setError(error.response?.data?.message || "Server error");
+    }
+  };
+
+
+
+  /* ====================RETURN===================================== */
   return (
     <>
       <div className="products-header">
@@ -90,7 +115,7 @@ function Product() {
 
           return (
             <div className="product-card" key={product._id}>
-              {/* IMAGE PRODUIT (remplace l’icône) */}
+              {/* IMAGE PRODUIT  */}
               <div className="product-image-container">
                 <img
                   src={product.image}
@@ -108,7 +133,7 @@ function Product() {
               {/* PRICE */}
               <p className="product-price">{product.price} DA</p>
               {/* STOCK */}
-              <label for="progress-bar" className="stock-text">
+              <label htmlFor="progress-bar" className="stock-text">
                 available Stock
               </label>{" "}
               <progress
@@ -123,7 +148,9 @@ function Product() {
                 <p className="sold-text">{vendus} sold</p>
                 <p style={{ color: color }}>{status}</p>
               </div>
-             {/* <FaTrashCan style={{color:"red"}} /> */}
+               <FaTrashCan style={{color:"red" , cursor:"pointer"}} 
+               onClick={() => deleteproduct(product._id)}/> 
+         
             </div>
           );
         })}
