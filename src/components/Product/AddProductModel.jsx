@@ -4,56 +4,48 @@ import axios from "axios";
 
 function AddProductModel({ onClose }) {
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [sku, setSku] = useState("");
   const [image, setImage] = useState("");
   const [stockQuantity, setStockQuantity] = useState(0);
-  const [stockMin, setStockMin] = useState(0);
+  const [stockInitial, setStockInitial] = useState(0);
   const [price, setPrice] = useState(0);
   const [companyId, setCompanyId] = useState("");
   const [category, setCategory] = useState(""); // sélection utilisateur
   const [categories, setCategories] = useState([]); // liste API
-  const defaultcategories = [
-    "Electronics",
-    "Computers",
-    "Accessories",
-    "Clothing",
-    "Shoes",
-    "Bags & Accessories",
-    "Beauty & Cosmetics",
-    "Jewelry",
-    "Home Decor",
-    "Food Items",
-    "Fresh Products",
-    "Frozen Products",
-    "Snacks",
-    "Raw Materials",
-    "Machinery",
-    "Tools",
-    "Spare Parts",
-    "Packaging",
-    "Chemicals",
-  ];
 
   /* ======================= */
   /* =======ADD PRODUCT===== */
   /* ======================= */
   const addproduct = async () => {
+    const token = localStorage.getItem("token");
     try {
-      axios.post("http://localhost:5001/products/product", {
-        title,
-        description,
-        sku,
-        image,
-        stockQuantity,
-        stockMin,
-        price,
-        categoryId: category,
-      });
-      setError(error.response.data.message || "Server error");
+      const response = await axios.post(
+        "http://localhost:5001/products/product",
+        {
+          title,
+          description,
+          sku,
+          image,
+          stockQuantity,
+          stockInitial,
+          price,
+          categoryId: category,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      // ✅ SUCCESS
+      setSuccess(response.data.message);
+      setError("");
     } catch (error) {
-      setError(error.response.data.message || "Server error");
+      setError(error?.response?.data?.message || "Server error");
+      setSuccess("");
     }
   };
 
@@ -61,14 +53,25 @@ function AddProductModel({ onClose }) {
   /* ======= Get Category===== */
   /* ======================= */
   const gettingcategories = async () => {
+    const token = localStorage.getItem("token");
+
     try {
       const response = await axios.get(
         "http://localhost:5001/category/categories",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
       );
-      setCategories(response.data.category);
-      setError(error.response.data.message || "Server error");
+
+      setCategories(response.data.data);
+      // ✅ SUCCESS
+      setSuccess(response.data.message);
+      setError("");
     } catch (error) {
-      setError(error.response.data.message || "Server error");
+      setError(error?.response?.data?.message || "Server error");
+      setSuccess("");
     }
   };
   useEffect(() => {
@@ -111,7 +114,15 @@ function AddProductModel({ onClose }) {
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
-
+        <label className="modal-label"> Initial Stock </label>
+        <input
+          type="number"
+          className="modal-input"
+          placeholder=" Stock Min"
+          value={stockInitial}
+          onChange={(e) => setStockInitial(e.target.value)}
+        />
+        <label className="modal-label">Available Stock </label>
         <input
           type="number"
           className="modal-input"
@@ -119,15 +130,8 @@ function AddProductModel({ onClose }) {
           value={stockQuantity}
           onChange={(e) => setStockQuantity(e.target.value)}
         />
-
-        <input
-          type="number"
-          className="modal-input"
-          placeholder="Stock Min"
-          value={stockMin}
-          onChange={(e) => setStockMin(e.target.value)}
-        />
-
+        
+        <label className="modal-label">Price</label>
         <input
           type="number"
           className="modal-input"
@@ -135,25 +139,19 @@ function AddProductModel({ onClose }) {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
-       <select
-  onChange={(e) => setCategory(e.target.value)}
-  className="modal-input"
->
-  <option value="">Select category</option>
-
-  {defaultcategories.map((cat) => (
-    <option key={cat} value={cat}>
-      {cat}
-    </option>
-  ))}
-
-  {categories.map((cat) => (
-    <option key={cat._id} value={cat._id}>
-      {cat.name}
-    </option>
-  ))}
-</select>
-        <p id="error-message">{error}</p>
+        <select
+          onChange={(e) => setCategory(e.target.value)}
+          className="modal-input"
+        >
+          <option value="">Select category</option>
+          {categories.map((cat) => (
+            <option key={cat._id} value={cat._id}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
+        {success && <p className="success-message">{success}</p>}
+        {error && <p className="error-message">{error}</p>}
 
         <div className="modal-actions">
           <button className="btn-add" onClick={addproduct}>

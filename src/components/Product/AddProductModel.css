@@ -36,6 +36,13 @@
   outline: none;
   transition: 0.2s;
 }
+.modal-label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+  display: block;
+}
 
 .modal-input:focus {
   border-color: #9FA1FF;

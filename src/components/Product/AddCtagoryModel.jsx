@@ -1,22 +1,34 @@
-import axios from 'axios';
-import React, { useState } from 'react'
+import axios from "axios";
+import React, { useState } from "react";
 
 function AddCtagoryModel({ onClose }) {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   /* ======================= */
   /* =======ADD CATEGORY===== */
   /* ======================= */
   const addcategory = async () => {
+    const token = localStorage.getItem("token");
     try {
-      axios.post("http://localhost:5001/category/category ", {
-        name
-         
-      });
-      setError(error.response.data.message || "Server error");
+      const response = await axios.post(
+        "http://localhost:5001/category/category",
+        {
+          name,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      // ✅ SUCCESS
+      setSuccess(response.data.message);
+      setError("");
     } catch (error) {
-      setError(error.response.data.message || "Server error");
+      setError(error?.response?.data?.message || "Server error");
+      setSuccess("");
     }
   };
 
@@ -30,10 +42,11 @@ function AddCtagoryModel({ onClose }) {
           className="modal-input"
           placeholder="Title"
           value={name}
-          onChange={(e) => setName(e.target.value)} 
+          onChange={(e) => setName(e.target.value)}
         />
-        
-        <p id="error-message">{error}</p>
+
+        {success && <p className="success-message">{success}</p>}
+        {error && <p className="error-message">{error}</p>}
 
         <div className="modal-actions">
           <button className="btn-add" onClick={addcategory}>
@@ -45,8 +58,7 @@ function AddCtagoryModel({ onClose }) {
         </div>
       </div>
     </div>
-  
-  )
+  );
 }
 
-export default AddCtagoryModel
+export default AddCtagoryModel;

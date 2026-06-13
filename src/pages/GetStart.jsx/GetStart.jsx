@@ -24,6 +24,7 @@ function GetStart() {
   ];
 
   const [error, setError] = useState("");
+const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   /* =======Stockage es valeur du front ============= */
   const handleNameChange = (e) => {
@@ -67,7 +68,8 @@ function GetStart() {
         joinCode,
         role,
       });
-      setError("Waiting to be approved by the founder");
+       // ✅ SUCCESS
+    setSuccess(response.data.message);
       setTimeout(() => {
         navigate("/");
       }, 3000);
@@ -166,7 +168,8 @@ function GetStart() {
               <input type="checkbox" />
               <span>I agree to Terms & Privacy Policy</span>
             </label>
-            <p id="error-message">{error}</p>
+            {success && <p className="success-message">{success}</p>}
+{error && <p className="error-message">{error}</p>}
             <button className="submit-btn" onClick={registeremployee}>
               Create Account
             </button>

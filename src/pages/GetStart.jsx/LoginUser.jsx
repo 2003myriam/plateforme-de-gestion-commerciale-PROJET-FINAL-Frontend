@@ -9,6 +9,7 @@ function LoginUser() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -20,19 +21,15 @@ function LoginUser() {
 
   const loginUser = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:5001/user/login",
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post("http://localhost:5001/user/login", {
+        email,
+        password,
+      });
 
       localStorage.setItem("token", response.data.token);
-
+      
       setError("");
       navigate("/dashboard");
-
     } catch (error) {
       console.log(error);
       setError(error?.response?.data?.message || "Server error");
@@ -41,39 +38,30 @@ function LoginUser() {
 
   return (
     <div className="devisé">
-
       {/* LEFT SIDE */}
       <div className="register-gauche">
-
         <div className="form-container">
-
           <h2>Welcome back</h2>
-          <div   className="form-group">
+          <div className="form-group">
             <label>Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
+            <input type="email" value={email} onChange={handleEmailChange} />
           </div>
           <div className="form-group">
-           <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
           </div>
-          
-
-          
 
           <label className="checkbox">
             <input type="checkbox" />
             <span>Remember me</span>
           </label>
 
-          <p id="error-message">{error}</p>
+          {success && <p className="success-message">{success}</p>}
+        {error && <p className="error-message">{error}</p>}
 
           <button className="submit-btn" onClick={loginUser}>
             Login
@@ -82,28 +70,33 @@ function LoginUser() {
           <p className="haveaccount">
             No account ? <Link to="/register">Create one</Link>
           </p>
-
         </div>
       </div>
 
       {/* RIGHT SIDE */}
       <div className="register-droit">
-
         <h1>The dashboard that helps your business grow.</h1>
 
         <p>
-          Track sales, customers, inventory, assign tasks and analyze performance in real time.
+          Track sales, customers, inventory, assign tasks and analyze
+          performance in real time.
         </p>
 
         <ul>
-          <li><FaCheckCircle /> Real-time order tracking</li>
-          <li><FaCheckCircle /> Automated stock alerts</li>
-          <li><FaCheckCircle /> Smart task assignment</li>
-          <li><FaCheckCircle /> Planning and schedule management</li>
+          <li>
+            <FaCheckCircle /> Real-time order tracking
+          </li>
+          <li>
+            <FaCheckCircle /> Automated stock alerts
+          </li>
+          <li>
+            <FaCheckCircle /> Smart task assignment
+          </li>
+          <li>
+            <FaCheckCircle /> Planning and schedule management
+          </li>
         </ul>
-
       </div>
-
     </div>
   );
 }
