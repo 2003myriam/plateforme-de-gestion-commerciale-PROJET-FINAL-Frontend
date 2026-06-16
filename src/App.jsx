@@ -6,6 +6,8 @@ import GetStart from './pages/GetStart.jsx/GetStart';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Product from './pages/Dashboard/Commerce/Product/Product';
 import LoginUser from './pages/GetStart.jsx/LoginUser';
+import Default from './pages/Dashboard/dashboard/Default';
+import TaskRh from './pages/Dashboard/Human Resources/Task/TaskRh';
  
  
  
@@ -23,8 +25,9 @@ function App() {
 
        {/* Layout Dashboard */}
         <Route path="/dashboard" element={<Dashboard/>}>
-           <Route index element={<h1>hey</h1>} />
+           <Route index element={<Default/>} />
            <Route path="product" element={<Product/>}/>
+           <Route path="tasks" element={<TaskRh/>}/>
         </Route>
      </Routes>
      

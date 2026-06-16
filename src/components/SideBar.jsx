@@ -65,7 +65,7 @@ function SideBar() {
       Commerce
     </h6>
 
-    <MenuItem icon={<LuLayoutDashboard />}>
+    <MenuItem icon={<LuLayoutDashboard />}  component={<Link to="/dashboard" />}>
       Dashboard
     </MenuItem>
 
@@ -88,7 +88,7 @@ function SideBar() {
     <MenuItem icon={<SlPeople />}> Employees</MenuItem>
     <MenuItem icon={<GrSchedules />}>Leave Requests</MenuItem>
     <MenuItem icon={<RiCalendarScheduleFill />}>Schedule</MenuItem>
-    <MenuItem icon={<FaTasks />}> Tasks</MenuItem>
+    <MenuItem icon={<FaTasks />}  component={<Link to="/dashboard/tasks" />}> Tasks</MenuItem>
   
     <SubMenu label="TypeScript + React">
   <MenuItem>Setup React + TypeScript</MenuItem>
