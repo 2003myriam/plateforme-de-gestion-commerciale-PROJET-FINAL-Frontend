@@ -88,16 +88,11 @@ function SideBar() {
     <MenuItem icon={<SlPeople />}> Employees</MenuItem>
     <MenuItem icon={<GrSchedules />}>Leave Requests</MenuItem>
     <MenuItem icon={<RiCalendarScheduleFill />}>Schedule</MenuItem>
-    <MenuItem icon={<FaTasks />}  component={<Link to="/dashboard/tasks" />}> Tasks</MenuItem>
-  
-    <SubMenu label="TypeScript + React">
-  <MenuItem>Setup React + TypeScript</MenuItem>
-  <MenuItem>Typing Props</MenuItem>
-  <MenuItem>Typing useState</MenuItem>
-  <MenuItem>Typing useEffect</MenuItem>
-  <MenuItem>Typing Events</MenuItem>
-</SubMenu>
-
+    <SubMenu icon={<FaTasks />} label="Tasks"> 
+        <MenuItem component={<Link to="/dashboard/tasks" />}>Task allocation</MenuItem>
+         <MenuItem component={<Link to="/dashboard/task" />}>Personnel task space</MenuItem>
+    </SubMenu>
+   
   </Menu>
 </Sidebar>
   );

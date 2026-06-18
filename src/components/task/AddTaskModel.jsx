@@ -80,7 +80,7 @@ function AddTaskModel({ onClose }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        {/* ============select employee================= */}
+        {/* ============select priority================= */}
         <select
           onChange={(e) => setPriority(e.target.value)}
           className="modal-input"

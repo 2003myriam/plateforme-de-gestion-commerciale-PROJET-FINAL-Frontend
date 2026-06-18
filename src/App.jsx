@@ -7,7 +7,8 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Product from './pages/Dashboard/Commerce/Product/Product';
 import LoginUser from './pages/GetStart.jsx/LoginUser';
 import Default from './pages/Dashboard/dashboard/Default';
-import TaskRh from './pages/Dashboard/Human Resources/Task/TaskRh';
+import TaskRh from './pages/Dashboard/HumanResources/Task/TaskRh';
+import PersonnelTask from './pages/Dashboard/HumanResources/Task/PersonnelTask';
  
  
  
@@ -28,6 +29,7 @@ function App() {
            <Route index element={<Default/>} />
            <Route path="product" element={<Product/>}/>
            <Route path="tasks" element={<TaskRh/>}/>
+           <Route path="task" element={<PersonnelTask/>}/>
         </Route>
      </Routes>
      
