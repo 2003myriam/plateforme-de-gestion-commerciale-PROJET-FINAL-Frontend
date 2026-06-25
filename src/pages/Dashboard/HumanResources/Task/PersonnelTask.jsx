@@ -5,6 +5,10 @@ import "./PersonnelTask.css"
 import axios from 'axios';
 import { FaTrashCan } from "react-icons/fa6";
 import "./TaskRh.css";
+import { FaBoxArchive } from "react-icons/fa6";
+import { FaRegHourglassHalf } from "react-icons/fa6";
+import { MdOutlineDoneOutline } from "react-icons/md";
+import { BiLoaderAlt } from "react-icons/bi";
 
 
 function PersonnelTask() {
@@ -56,6 +60,11 @@ function PersonnelTask() {
       setError(error.response?.data?.message || "Server error");
     }
   };
+
+  /* ========available status==== */
+  const todoTasks = tasks.filter((task) => task.status === "to_do");
+  const inProgressTasks = tasks.filter((task) => task.status === "in_progress");
+  const finishedTasks = tasks.filter((task) => task.status === "finished");
   
   
   return (
@@ -81,6 +90,42 @@ function PersonnelTask() {
      {/* ===================================================== */}
 {/* =============Display tasks===================== */}
 {/* ===================================================== */}
+<div className="stats-container">
+
+  <div className="stats-card total">
+    <FaBoxArchive className="icon-stat" />
+    <div className="stats-info">
+      <h2>{tasks.length}</h2>
+      <p>Total</p>
+    </div>
+  </div>
+
+  <div className="stats-card todo">
+    
+    <FaRegHourglassHalf  className="icon-stat"/>
+    <div className="stats-info">
+      <h2>{todoTasks.length}</h2>
+      <p>To do</p>
+    </div>
+  </div>
+
+  <div className="stats-card progress">
+    <BiLoaderAlt  className="icon-box total-icon"/>
+    <div className="stats-info">
+      <h2>{inProgressTasks.length}</h2>
+      <p>In Progress</p>
+    </div>
+  </div>
+
+  <div className="stats-card finished">
+   <MdOutlineDoneOutline  className="icon-box total-icon" />
+    <div className="stats-info">
+      <h2>{finishedTasks.length}</h2>
+      <p>Finished</p>
+    </div>
+  </div>
+
+</div>
 
 <div className="personal-tasks-container">
   {tasks.map((task) => (

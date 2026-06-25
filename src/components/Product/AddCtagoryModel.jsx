@@ -35,7 +35,7 @@ function AddCtagoryModel({ onClose }) {
   return (
     <div className="modal">
       <div className="modal-content">
-        <h2 className="modal-title">Add Catgory</h2>
+        <h2 className="modal-title">Add Category</h2>
 
         <input
           type="text"

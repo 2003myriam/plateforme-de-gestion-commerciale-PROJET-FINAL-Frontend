@@ -9,6 +9,10 @@ import LoginUser from './pages/GetStart.jsx/LoginUser';
 import Default from './pages/Dashboard/dashboard/Default';
 import TaskRh from './pages/Dashboard/HumanResources/Task/TaskRh';
 import PersonnelTask from './pages/Dashboard/HumanResources/Task/PersonnelTask';
+import Shedule from './pages/Dashboard/HumanResources/Task/Shedule/Shedule';
+import LandingPage from './pages/LandingPage/LandingPage';
+import SplashCursor from './components/SplashCursor/SplashCursor';
+ 
  
  
  
@@ -18,8 +22,9 @@ function App() {
 
   return (
     <>
+    <SplashCursor/>
      <Routes>
-      <Route path='/' element={<h1>hello worldddd yess</h1>}/>
+      <Route path='/' element={<LandingPage/>}/>
       <Route path='/register' element={<GetStart/>}/>
       <Route path='/login' element={<LoginUser/>}/>
      
@@ -30,6 +35,7 @@ function App() {
            <Route path="product" element={<Product/>}/>
            <Route path="tasks" element={<TaskRh/>}/>
            <Route path="task" element={<PersonnelTask/>}/>
+           <Route path="shedule" element={<Shedule/>}/>
         </Route>
      </Routes>
      
