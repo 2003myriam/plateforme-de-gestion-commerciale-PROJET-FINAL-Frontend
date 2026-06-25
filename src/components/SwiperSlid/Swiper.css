@@ -1,0 +1,17 @@
+.mySwiper{
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+   
+}
+
+.swiper-slide{
+  width: 600px;
+}
+
+.swiper-slide img{
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+ box-shadow: 0 10px 30px rgba(139, 92, 246);
+}
