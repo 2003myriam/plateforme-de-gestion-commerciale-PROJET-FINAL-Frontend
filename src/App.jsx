@@ -13,16 +13,13 @@ import Shedule from './pages/Dashboard/HumanResources/Task/Shedule/Shedule';
 import LandingPage from './pages/LandingPage/LandingPage';
 import SplashCursor from './components/SplashCursor/SplashCursor';
  
- 
- 
- 
- 
+
 function App() {
  
 
   return (
     <>
-    <SplashCursor/>
+     <SplashCursor/>
      <Routes>
       <Route path='/' element={<LandingPage/>}/>
       <Route path='/register' element={<GetStart/>}/>

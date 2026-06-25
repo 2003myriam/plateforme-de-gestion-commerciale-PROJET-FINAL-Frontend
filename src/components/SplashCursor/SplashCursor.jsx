@@ -18,8 +18,8 @@ function SplashCursor({
   COLOR_UPDATE_SPEED = 10,
   BACK_COLOR = { r: 0.5, g: 0, b: 0 },
   TRANSPARENT = true,
-  RAINBOW_MODE = true,
-  COLOR = '#ff0000'
+  RAINBOW_MODE = false,
+  COLOR = '#8b5cf6'
 }) {
   const canvasRef = useRef(null);
   const animationFrameId = useRef(null);
@@ -900,9 +900,9 @@ function SplashCursor({
         return hexToRGB(config.COLOR);
       }
       let c = HSVtoRGB(Math.random(), 1.0, 1.0);
-      c.r *= 0.15;
-      c.g *= 0.15;
-      c.b *= 0.15;
+      c.r= 0.55,
+    c.g= 0.36,
+    c.b= 0.96
       return c;
     }
 
