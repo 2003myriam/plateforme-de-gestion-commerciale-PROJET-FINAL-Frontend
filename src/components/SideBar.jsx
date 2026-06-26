@@ -20,8 +20,8 @@ function SideBar() {
     minWidth: "260px",
 
     [".ps-sidebar-container"]: {
-      backgroundColor: "#f9fafb",
-      borderRight: "1px solid #e5e7eb",
+      backgroundColor: "#0B1120",
+      borderRight: "1px solid #8b5cf6",
       padding: "15px 10px",
     },
   }}
@@ -32,23 +32,27 @@ function SideBar() {
         borderRadius: "12px",
         marginBottom: "6px",
         padding: "12px 14px",
-        backgroundColor: "#f9fafb",
-        color: "#091211",
+        backgroundColor: "#0B1120",
+        color: "#f8fafc",
         fontSize: "15px",
         fontWeight: 500,
         transition: "all 0.25s ease",
 
         "&:hover": {
           backgroundColor: "#c3c7fd",
-          color: "#5c63c8",
+          color: "#8b5cf6",
         },
       },
 
       icon: {
-        color: "#5c63c8",
+        color: "#8b5cf6",
         fontSize: "18px",
       },
+    subMenuContent: {
+    backgroundColor: "#0B1120"
+  },
     }}
+    
   >
     
 

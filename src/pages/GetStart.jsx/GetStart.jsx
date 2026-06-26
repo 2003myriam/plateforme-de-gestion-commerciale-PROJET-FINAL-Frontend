@@ -241,23 +241,23 @@ const [success, setSuccess] = useState("");
 
       {/* RIGHT SIDE */}
       <div className="register-droit">
-        <h1>The dashboard that helps your business grow.</h1>
+        <h1>The <span id="dashboard"> dashboard </span> that helps your business grow.</h1>
         <p>
           Track sales, customers, inventory, assign tasks and analyze
           performance in real time.
         </p>
         <ul>
           <li>
-            <FaCheckCircle /> Real-time order tracking
+            <FaCheckCircle  className="icone-log"/> Real-time order tracking
           </li>
           <li>
-            <FaCheckCircle /> Automated stock alerts
+            <FaCheckCircle className="icone-log" /> Automated stock alerts
           </li>
           <li>
-            <FaCheckCircle /> Smart task assignment
+            <FaCheckCircle className="icone-log"/> Smart task assignment
           </li>
           <li>
-            <FaCheckCircle /> Planning and schedule management
+            <FaCheckCircle className="icone-log" /> Planning and schedule management
           </li>
         </ul>
       </div>

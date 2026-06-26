@@ -10,13 +10,13 @@
   margin: 0;
   font-size: 24px;
   font-weight: 700;
-  color: #1f1f2e;
+  color: #f8fafc;
 }
 
 .products-text p {
   margin: 5px 0 0 0;
   color: #6b6b80;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 /* bouton */
@@ -54,7 +54,7 @@ align-items: center;
 }
 
 .product-card {
-  background: #fff;
+  background: #f8fafc;
   border-radius: 18px;
   padding: 18px;
   box-shadow: 0 8px 25px rgb(181, 186, 255,0.3);

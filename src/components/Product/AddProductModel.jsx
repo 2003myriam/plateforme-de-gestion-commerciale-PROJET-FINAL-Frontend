@@ -139,13 +139,13 @@ function AddProductModel({ onClose }) {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
-        <select
+        <select 
           onChange={(e) => setCategory(e.target.value)}
           className="modal-input"
         >
           <option value="">Select category</option>
           {categories.map((cat) => (
-            <option key={cat._id} value={cat._id}>
+            <option key={cat._id} value={cat._id}  >
               {cat.name}
             </option>
           ))}

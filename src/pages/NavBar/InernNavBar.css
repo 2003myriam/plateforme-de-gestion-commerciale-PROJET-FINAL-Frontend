@@ -5,7 +5,8 @@
   align-items: center;
   justify-content:space-evenly;
   padding: 0 25px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #8b5cf6;
+  
 }
 
 /* SEARCH BAR */
@@ -50,7 +51,7 @@
 }
  
 .navbar_icone {
-  color: #4a4ddb;
+  color: #8b5cf6;
   cursor: pointer;
 
   display: flex;
@@ -62,5 +63,5 @@
 
 .navbar_icone:hover {
   transform: scale(1.15);
-  color: #3e36ce;
+  color: #b595ff;
 }

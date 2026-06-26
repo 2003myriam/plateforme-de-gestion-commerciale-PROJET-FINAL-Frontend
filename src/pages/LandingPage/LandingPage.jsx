@@ -3,6 +3,7 @@ import NavBar from './NavBar/NavBar'
 import SplashCursor from '../../components/SplashCursor/SplashCursor'
 import "./LandingPage.css"
 import HeroSection from './HeroSection/HeroSection'
+import LogoLoop from '../../components/LogoLoop/LogoLoop'
  
  
  
@@ -14,6 +15,7 @@ function LandingPage() {
       <SplashCursor/>
       <NavBar/>
       <HeroSection/>
+      <LogoLoop/>
       
     
  
