@@ -29,19 +29,19 @@ function HeroSlider() {
     >
       <SwiperSlide>
         
-        <img src="/src/assets/add Product.png" alt="" />
+        <img src="/src/assets/add-product.png" alt="" />
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src="https://png.pngtree.com/thumb_back/fh260/background/20240522/pngtree-abstract-cloudy-background-beautiful-natural-streaks-of-sky-and-clouds-red-image_15684333.jpg" alt="" />
+        <img src="/src/assets/register.png" alt="" />
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src="https://png.pngtree.com/thumb_back/fh260/background/20250227/pngtree-a-meadow-of-pink-and-purple-flowers-image_17005010.jpg" alt="" />
+        <img src="/src/assets/add-product.png" alt="" />
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src="/dashboard4.png" alt="" />
+        <img src="/src/assets/register.png" alt="" />
       </SwiperSlide>
     </Swiper>
   );

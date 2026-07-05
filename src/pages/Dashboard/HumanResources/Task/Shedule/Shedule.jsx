@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoMdAdd } from "react-icons/io";
+import SheduleModel from '../../../../../components/SheduleModel/SheduleModel';
 
 function Shedule() {
+  const [openP, setOpenP] = useState(false);
+  const handleOpenShedule  = () => setOpenP(true);
+   const handleCloseShedule = () => setOpenP(false);
   return (
      <>
      <div className="products-header">
@@ -11,11 +15,11 @@ function Shedule() {
         </div>
         
         <div className="product-2btn">
-          <button className="product-btn"  >
+          <button className="product-btn" onClick={handleOpenShedule}  >
             <IoMdAdd />
            Add Schedule
           </button>
-           
+            {openP && <SheduleModel onClose={handleCloseShedule} />}
         </div>
       </div>
      </>

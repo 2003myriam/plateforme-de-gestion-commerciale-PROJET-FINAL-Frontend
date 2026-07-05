@@ -1,0 +1,49 @@
+.about-section{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0px 40px;
+    gap:10px;
+    background:#ffffff;
+
+}
+
+/* ================= LEFT ================= */
+
+.about-gauche{
+
+    width:42%;
+
+}
+
+.about-gauche h2{
+    color:#8b5cf6;
+    font-size:16px;
+    text-transform:uppercase;
+
+}
+
+.about-gauche h1{
+    font-size:48px;
+    color:#0B1120;
+    margin-bottom:0px;
+
+}
+
+.about-gauche p{
+    color:#6b7280;
+    font-size:18px;
+    line-height:1.5;
+
+}
+
+/* ================= RIGHT ================= */
+
+.about-droit{
+
+    width:40%;
+
+    height:500px;
+
+}
