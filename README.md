@@ -10,3 +10,4 @@
  text : #f8fafc
  sous titre gris clair : #6b7280
  violet des btn : #8b5cf6
+ couleur secondaire : #56c1d4
