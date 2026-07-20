@@ -91,7 +91,6 @@ function SideBar() {
 
     <MenuItem icon={<SlPeople />}> Employees</MenuItem>
     <MenuItem icon={<GrSchedules />}>Leave Requests</MenuItem>
-    <MenuItem icon={<RiCalendarScheduleFill />} component={<Link to="/dashboard/shedule" />}>Schedule</MenuItem>
     <SubMenu icon={<FaTasks />} label="Tasks"> 
         <MenuItem component={<Link to="/dashboard/tasks" />}>Task allocation</MenuItem>
          <MenuItem component={<Link to="/dashboard/task" />}>Personnel task space</MenuItem>

@@ -6,20 +6,14 @@ import "./Dashboard.css";
 
 function Dashboard() {
   return (
-
     <div className="dashboard">
-    
-
       <SideBar />
-
       <div className="main-content">
         <InterneNavBar />
-
         <div className="page-content">
           <Outlet />
         </div>
       </div>
-
     </div>
   );
 }
