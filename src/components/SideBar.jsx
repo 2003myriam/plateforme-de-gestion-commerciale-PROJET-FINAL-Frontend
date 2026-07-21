@@ -9,6 +9,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { AiOutlineProduct } from "react-icons/ai";
 import { RiCalendarScheduleFill } from "react-icons/ri";
 import { GrSchedules } from "react-icons/gr";
+import { HiOutlineUserAdd } from "react-icons/hi";
 function SideBar() {
    return (
    <Sidebar
@@ -88,7 +89,7 @@ function SideBar() {
     >
       Human Resources
     </h6>
-
+    <MenuItem icon={<HiOutlineUserAdd />} component={<Link to="/dashboard/request" />}> Pending Requests</MenuItem>
     <MenuItem icon={<SlPeople />}> Employees</MenuItem>
     <MenuItem icon={<GrSchedules />}>Leave Requests</MenuItem>
     <SubMenu icon={<FaTasks />} label="Tasks"> 

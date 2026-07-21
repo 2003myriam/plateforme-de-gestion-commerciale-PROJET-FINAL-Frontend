@@ -10,6 +10,7 @@ import TaskRh from './pages/Dashboard/HumanResources/Task/TaskRh';
 import PersonnelTask from './pages/Dashboard/HumanResources/Task/PersonnelTask';
 import LandingPage from './pages/LandingPage/LandingPage';
 import SplashCursor from './components/SplashCursor/SplashCursor';
+import PendingRequests from './pages/Dashboard/HumanResources/Task/PendingRequests/PendingRequests';
  
 function App() {
  
@@ -29,7 +30,7 @@ function App() {
            <Route path="product" element={<Product/>}/>
            <Route path="tasks" element={<TaskRh/>}/>
            <Route path="task" element={<PersonnelTask/>}/>
-         
+            <Route path="request" element={<PendingRequests/>}/>
         </Route>
      </Routes>
      

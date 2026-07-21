@@ -1,0 +1,143 @@
+/* ==========generation du code ========== */
+.joincode-card{
+     
+    background:var(--noir);
+    border-radius:18px;
+    padding:30px;
+    display:flex;
+    flex-direction:row;
+    gap:20px;
+}
+
+.joincode-header h2{
+    font-size:1.7rem;
+    color:var(--light);
+    margin-bottom:8px;
+}
+
+.joincode-header p{
+    color:var(--gris);
+ 
+}
+
+ 
+
+.success{
+    margin-top: 20px;
+    
+    color:#2fcd46;
+    
+     
+}
+
+.error{
+      margin-top: 20px;
+    
+    color:#dc3545;
+    
+}
+
+.joincode-box{
+    margin-top:10px;
+    padding:25px;
+    border:1px dashed var(--violet);
+    border-radius:16px;
+    background:var(--noir);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
+
+.joincode-label{
+    color:var(--gris);
+    font-size:.9rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.joincode-value{
+    font-size:2rem;
+    font-weight:700;
+    color:var(--violet);
+    letter-spacing:4px;
+    font-family:monospace;
+    background:var(--noir);
+    padding:14px 30px;
+     
+   
+}
+
+.joincode-box small{
+    color:#777;
+    text-align:center;
+    line-height:1.5;
+}
+/* ===============affichage des user avec status pending ======= */
+/* ========================= */
+/* ===== Pending Table ===== */
+/* ========================= */
+
+.pending-table{
+    width:100%;
+    margin-top:30px;
+    background:var(--light);
+    border-radius:18px;
+    overflow:hidden;
+    border-collapse:collapse;
+    box-shadow:0 8px 20px rgba(0,0,0,.04);
+}
+
+.pending-table thead{
+    background:#f8f9fb;
+}
+
+.pending-table th{
+    padding:18px;
+    text-align:left;
+    font-size:.95rem;
+    color:var(--black);
+    font-weight:600;
+    border-bottom:1px solid #ececec;
+}
+
+.pending-table td{
+    padding:18px;
+    border-bottom:1px solid #f2f2f2;
+    color:var(--gris);
+    font-size:.94rem;
+}
+
+.pending-table tbody tr{
+    transition:.25s;
+}
+
+.pending-table tbody tr:hover{
+    background:#fafafa;
+}
+
+/* ========================= */
+/* ===== Select Status ===== */
+/* ========================= */
+
+.pending-table select{
+    width:140px;
+    padding:10px 14px;
+    border:1px solid #dcdcdc;
+    border-radius:10px;
+    background:#fff;
+    color:var(--black);
+    font-weight:500;
+    cursor:pointer;
+    outline:none;
+    transition:.25s;
+}
+
+.pending-table select:hover{
+    border-color:var(--violet);
+}
+
+.pending-table select:focus{
+    border-color:var(--violet);
+    box-shadow:0 0 0 3px rgba(108,99,255,.15);
+}
