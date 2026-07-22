@@ -1,0 +1,102 @@
+/* ================= SECTION ================= */
+
+.F-Q{
+    padding:120px 8%;
+}
+
+.F-Q h4{
+    text-align:center;
+    color:var(--bleu);
+    font-size:16px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.F-Q h2{
+    text-align:center;
+    color:var(--light);
+    font-size:48px;
+    margin-bottom:70px;
+}
+
+.faq-subtitle{
+
+    color:var(--gris);
+    text-align:center;
+    margin:0 auto 60px;
+    font-size:18px;
+}
+/* ================= CONTAINER ================= */
+
+.box-container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+}
+
+/* ================= ACCORDION ================= */
+
+.ant-collapse{
+
+    background:transparent !important;
+    border:none !important;
+}
+
+/* baground de la qst */
+.ant-collapse-item{
+
+    background:var(--light);
+    border:1px solid rgba(255,255,255,.08) !important;
+    border-radius:18px !important;
+    margin-bottom:18px;
+    overflow:hidden;
+    transition:.35s;
+}
+/* ===titre de la qst === */
+.ant-collapse-title{
+  color: var(--violet);
+}
+/* hover */
+
+.ant-collapse-item:hover{
+
+    transform:translateY(-4px);
+    border-color:var(--violet) !important;
+    box-shadow:0 20px 45px rgba(196, 4, 254, 0.08);
+}
+
+/* question +icone  contenue */
+
+.ant-collapse-header{     
+    font-size:18px;
+    font-weight:600;
+    padding:24px 28px !important;
+    align-items:center !important;
+}
+
+/* réponse */
+
+.ant-collapse-body{
+    background:var(--light) !important;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+.ant-collapse-body p{
+    color: var(--gris);
+    font-size: 18px;
+    
+}
+ 
+/* icône */
+
+.ant-collapse-expand-icon{
+
+    color:  var(--violet) !important;
+  
+}
+ 
+/* panneau ouvert */
+
+.ant-collapse-item-active{
+
+    border-color:var(--violet) !important;
+}

@@ -5,8 +5,8 @@ import "./LandingPage.css"
 import HeroSection from './HeroSection/HeroSection'
 import LogoLoop from '../../components/LogoLoop/LogoLoop'
 import About from './About/About'
-import Temoignage from './Temoignage/Temoignage'
 import Pricing from './Pricing/Pricing'
+import Question from './Question/Question'
  
  
  
@@ -20,9 +20,8 @@ function LandingPage() {
       <HeroSection/>
       <LogoLoop/>
       <About/>
-      <Temoignage/>
       <Pricing/>
-      
+      <Question/>
     
  
       
