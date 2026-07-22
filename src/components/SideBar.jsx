@@ -90,7 +90,7 @@ function SideBar() {
       Human Resources
     </h6>
     <MenuItem icon={<HiOutlineUserAdd />} component={<Link to="/dashboard/request" />}> Pending Requests</MenuItem>
-    <MenuItem icon={<SlPeople />}> Employees</MenuItem>
+    <MenuItem icon={<SlPeople />} component={<Link to="/dashboard/employee" />}> Employees</MenuItem>
     <MenuItem icon={<GrSchedules />}>Leave Requests</MenuItem>
     <SubMenu icon={<FaTasks />} label="Tasks"> 
         <MenuItem component={<Link to="/dashboard/tasks" />}>Task allocation</MenuItem>

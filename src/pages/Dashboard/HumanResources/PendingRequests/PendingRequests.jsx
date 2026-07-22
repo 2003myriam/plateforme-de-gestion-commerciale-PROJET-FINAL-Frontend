@@ -162,7 +162,7 @@ function PendingRequests() {
                 </select>
               </td>
               <td>
-              <FaSave onClick={() => updateStatus(user._id, user.status)}/>  
+              <FaSave onClick={() => updateStatus(user._id, user.status)} style={{color:"#8b5cf6", cursor:"pointer"}}/>  
               </td>
             </tr>
           ))}
