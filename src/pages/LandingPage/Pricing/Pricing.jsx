@@ -3,7 +3,7 @@ import './Pricing.css'
 import { MdDone } from "react-icons/md";
 function Pricing() {
   return (
-    <div   >
+    <div     >
   <div className="pricing-title">
     <h2>Pricing</h2>
     <h1>Choose the plan that fits your team's growth.</h1>

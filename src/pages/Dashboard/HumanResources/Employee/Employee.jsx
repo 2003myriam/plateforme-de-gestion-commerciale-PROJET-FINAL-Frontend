@@ -14,7 +14,7 @@ function Employee() {
   const gettingUsers = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.get("http://localhost:5001/user/users", {
+      const response = await axios.get("http://localhost:5001/user/approvedusers", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
