@@ -8,6 +8,7 @@ import About from './About/About'
 import Pricing from './Pricing/Pricing'
 import Question from './Question/Question'
 import TemoignagePage from './Temoignage/TemoignagePage'
+import CTA from '../../components/Call to Action/CTA'
  
  
  
@@ -23,8 +24,10 @@ function LandingPage() {
       <LogoLoop/>
       <About/>
       <Pricing/>
+       <TemoignagePage/>
       <Question/>
-      <TemoignagePage/>
+      <CTA/>
+     
     
  
       
