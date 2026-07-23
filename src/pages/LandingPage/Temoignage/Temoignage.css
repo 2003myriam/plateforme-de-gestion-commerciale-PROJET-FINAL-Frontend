@@ -1,0 +1,18 @@
+.avis{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+.avis h2{
+   text-align:center;
+    color:var(--light);
+    font-size:48px;
+   
+}
+.avis p{
+     color:var(--gris);
+    font-size:18px;
+}

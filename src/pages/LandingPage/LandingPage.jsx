@@ -7,6 +7,8 @@ import LogoLoop from '../../components/LogoLoop/LogoLoop'
 import About from './About/About'
 import Pricing from './Pricing/Pricing'
 import Question from './Question/Question'
+import TemoignagePage from './Temoignage/TemoignagePage'
+ 
  
  
  
@@ -22,6 +24,7 @@ function LandingPage() {
       <About/>
       <Pricing/>
       <Question/>
+      <TemoignagePage/>
     
  
       

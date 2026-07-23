@@ -1,6 +1,7 @@
 import React from 'react'
 import HeroSlider from '../../../components/SwiperSlid/HeroSlider'
 import "./HeroSection.css"
+import { Link } from 'react-router-dom'
 
 function HeroSection() {
   return (
@@ -22,7 +23,7 @@ function HeroSection() {
         </p>
 
         <div className="HeroBtns">
-            <button className="PrimaryBtn">Get Started</button>
+            <Link to="/register" className="PrimaryBtn" style={{  textDecoration: "none"}}>Get Started</Link>
             <button className="SecondaryBtn">Learn More</button>
         </div>
     </div>
