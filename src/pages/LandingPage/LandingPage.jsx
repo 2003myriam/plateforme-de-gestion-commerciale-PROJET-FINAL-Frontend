@@ -9,6 +9,7 @@ import Pricing from './Pricing/Pricing'
 import Question from './Question/Question'
 import TemoignagePage from './Temoignage/TemoignagePage'
 import CTA from '../../components/Call to Action/CTA'
+import Features from '../Features/Features'
  
  
  
@@ -23,6 +24,7 @@ function LandingPage() {
       <HeroSection/>
       <LogoLoop/>
       <About/>
+      <Features/>
       <Pricing/>
        <TemoignagePage/>
       <Question/>

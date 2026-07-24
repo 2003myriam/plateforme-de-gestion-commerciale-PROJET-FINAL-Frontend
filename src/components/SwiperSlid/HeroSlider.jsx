@@ -37,7 +37,7 @@ function HeroSlider() {
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src="/src/assets/add-product.png" alt="" />
+        <img src="/src/assets/task.png" alt="" />
       </SwiperSlide>
 
       <SwiperSlide>
