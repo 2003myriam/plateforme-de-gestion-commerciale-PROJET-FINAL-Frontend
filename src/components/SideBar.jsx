@@ -75,7 +75,7 @@ function SideBar() {
     </MenuItem>
 
     <MenuItem icon={<FiShoppingBag />}>Orders</MenuItem>
-    <MenuItem icon={ <RxPeople />}>Customers</MenuItem>
+    <MenuItem icon={ <RxPeople />}component={<Link to="/dashboard/customer" />}>Customers</MenuItem>
     <MenuItem icon={<AiOutlineProduct />} component={<Link to="/dashboard/product" />}> Products</MenuItem>
 
     <h6

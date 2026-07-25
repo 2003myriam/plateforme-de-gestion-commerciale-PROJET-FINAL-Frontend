@@ -12,6 +12,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import SplashCursor from './components/SplashCursor/SplashCursor';
 import PendingRequests from './pages/Dashboard/HumanResources/PendingRequests/PendingRequests';
 import Employee from './pages/Dashboard/HumanResources/Employee/Employee';
+import Customer from './pages/Dashboard/Commerce/Product/Customer/Customer';
  
 function App() {
  
@@ -33,6 +34,7 @@ function App() {
            <Route path="task" element={<PersonnelTask/>}/>
             <Route path="request" element={<PendingRequests/>}/>
              <Route path="employee" element={<Employee/>}/>
+             <Route path="customer" element={<Customer/>}/>
         </Route>
      </Routes>
      

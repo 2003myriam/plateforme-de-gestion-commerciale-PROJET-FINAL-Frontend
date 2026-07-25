@@ -1,0 +1,96 @@
+/* texte gauche */
+.customer{
+   padding: 20px 0;
+}
+.customer-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--light);
+}
+
+.customer-header p {
+  margin: 5px 0 0 0;
+  color: #6b6b80;
+  font-size: 18px;
+}
+
+/* =================================== */
+/* =====grid ============= */
+.customer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* cartes */
+.Customer-card{
+  background: var(--light);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 8px 25px rgb(181, 186, 255,0.3);
+  transition: 0.3s;
+}
+.Customer-card:hover{
+  transform: translateY(-5px);
+}
+
+.customer-grid-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* ===avatar ===== */
+
+.customer-avatar{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background: var(--violet);
+    color:var(--light);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:14px;
+    font-weight:700;
+}
+/* ==== badge=== */
+.customer-badge{
+  padding: 7px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;  
+}
+
+/* ====list ======== */
+.customer-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.customer-info h3 {
+  margin-bottom: 20px;
+  color: var(--noir);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.customer-info li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  color: var(--noir);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.customer-info li:last-child {
+  margin-bottom: 0;
+}
+
+.customer-info li svg {
+  font-size: 18px;
+  color: var(--violet);
+  flex-shrink: 0;
+}

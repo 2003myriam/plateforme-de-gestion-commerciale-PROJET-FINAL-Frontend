@@ -9,18 +9,22 @@
 }
 
 /* Logo */
-.NavBarLogo{
+.NavBarLogo   {
     flex: 1;
     font-size: 1.2rem;
     font-weight: 600;
+    width: 20px;
+    height: 20px;
 }
+ 
+
 
 /* Menu */
 .NavBarContent{
     flex: 1;
     display: flex;
     justify-content: center;
-    gap: 35px;
+    gap: 15px;
 
     list-style: none;
 }

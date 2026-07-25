@@ -2,6 +2,7 @@ import React from 'react'
 import "./NavBar.css"
 import { Link } from 'react-router-dom'
 import { FaLongArrowAltRight } from "react-icons/fa";
+import logo from "../../../assets/logo.png"
 
 function NavBar() {
   return (
@@ -9,10 +10,12 @@ function NavBar() {
      <div className="NavBar">
   
   <div className="NavBarLogo">
-    Logo
+    logo
   </div>
 
   <ul className="NavBarContent">
+     
+    <li>About</li>
     <li className="active">How It Works</li>
     <li>Solutions</li>
     <li>Pricing</li>
