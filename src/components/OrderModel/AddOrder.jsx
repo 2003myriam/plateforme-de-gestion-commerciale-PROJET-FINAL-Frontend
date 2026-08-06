@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import "./AddOrder.css"
 
 function AddOrder({ onClose }) {
   const [error, setError] = useState("");
@@ -8,11 +9,11 @@ function AddOrder({ onClose }) {
   const [status, setStatus] = useState("");
   const [canal, setCanal] = useState("");
   const [paiement, setPaiement] = useState("");
- // Liste de tous les produits récupérés de l'API
+  // Liste de tous les produits récupérés de l'API
   const [allProducts, setAllProducts] = useState([]);
-// Produits qui feront partie de la commande
+  // Produits qui feront partie de la commande
   const [orderProducts, setOrderProducts] = useState([]);
-// Produit actuellement sélectionné dans le <select>
+  // Produit actuellement sélectionné dans le <select>
   const [selectproduct, setSelectProduct] = useState("");
   const [customer, setCustomer] = useState([]); // liste API
   const [quantity, setQuantity] = useState(1);
@@ -49,7 +50,7 @@ function AddOrder({ onClose }) {
           status,
           canal,
           paiement,
-          products,
+          products: orderProducts,
         },
         {
           headers: {
@@ -120,6 +121,16 @@ function AddOrder({ onClose }) {
     gettingProducts();
   }, []);
 
+  {/* =========  function to add prodcut order============= */ }
+  const addProductToOrder = () => {
+    setOrderProducts(prevList => [...prevList,
+    {
+      productId: selectproduct,
+      quantity: quantity
+    }
+    ]);
+  }
+
   return (
     <div className="modal">
       <div className="modal-content">
@@ -172,16 +183,15 @@ function AddOrder({ onClose }) {
             </option>
           ))}
         </select>
-        {/* ======= Produits de la meme commande ======= */}
-        <div>
+        {/* ======= affichage des produit de la mem commande ====== */}
+        <div className="order-items">
           <h2>Order items</h2>
-          <div>
-            {/* ===== choisir le produit ==== */}
+         {/* ======= affichage de tous les produits ====== */}
+          <div className="order-item-form">
             <select
-              name=""
-              id=""
               onChange={(e) => setSelectProduct(e.target.value)}
-              className="modal-input">
+              className="modal-input"
+            >
               <option value="">Select Product</option>
               {allProducts.map((c) => (
                 <option key={c._id} value={c._id}>
@@ -189,13 +199,28 @@ function AddOrder({ onClose }) {
                 </option>
               ))}
             </select>
-            {/* ===== selectionnée la quantité === */}
+          {/* ======= affichage de  la quantité ====== */}
             <input
               type="number"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
-            <button>ADD</button>
+          
+            <button
+              className="btn-item-add"
+              onClick={addProductToOrder}
+            >
+              ADD
+            </button>
+          </div>
+
+          <div className="order-list">
+            {orderProducts.map((item, index) => (
+              <div className="order-card" key={index}>
+                <p>Produit : {item.productId}</p>
+                <p>Quantité : {item.quantity}</p>
+              </div>
+            ))}
           </div>
         </div>
 

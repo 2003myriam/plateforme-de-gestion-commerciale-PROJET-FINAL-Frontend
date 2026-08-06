@@ -1,0 +1,73 @@
+/* ========================= */
+/* ===== ORDER ITEMS ======= */
+/* ========================= */
+
+.order-items {
+  margin-top: 15px;
+ 
+}
+
+.order-items h2 {
+  color: #f8fafc;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.order-item-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.order-item-form select {
+  flex: 1;
+}
+
+.order-item-form input {
+  width: 90px;
+  padding: 10px;
+  border: 1px solid #8b5cf6;
+  border-radius: 6px;
+  outline: none;
+}
+
+.btn-item-add {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #9FA1FF;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn-item-add:hover {
+  background: #6365d2;
+}
+
+/* Liste des produits ajoutés */
+
+.order-list {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  max-height: 100px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.order-card {
+  background: #161f34;
+  border: 1px solid #29324a;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.order-card p {
+  margin: 4px 0;
+  color: #f8fafc;
+  font-size: 14px;
+}
