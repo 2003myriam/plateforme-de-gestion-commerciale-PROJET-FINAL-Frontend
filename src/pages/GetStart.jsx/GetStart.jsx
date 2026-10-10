@@ -60,7 +60,7 @@ const [success, setSuccess] = useState("");
   /* ===============REGISTER EMPLOYEE ================= */
   const registeremployee = async () => {
     try {
-      const response = await axios.post("http://localhost:5001/user/register", {
+      const response = await axios.post("https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/user/register", {
         name,
         email,
         password,
@@ -82,7 +82,7 @@ const [success, setSuccess] = useState("");
   const registerfounder = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5001/user/getstarted",
+        "https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/user/getstarted",
         { name, email, password, phone, companyName, companyEmail },
       );
       navigate("/dashboard");

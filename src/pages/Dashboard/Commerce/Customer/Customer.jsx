@@ -15,24 +15,27 @@ function Customer() {
 
   /* ========Getting all customers===== */
 
-  const gettingcustomer = async () => {
-    const token = localStorage.getItem("token");
-    try {
-      const response = await axios.get(
-        "http://localhost:5001/customers/customer ",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
+  
+const gettingcustomer = async () => {
+  const token = localStorage.getItem("token");
 
-      setCustomer(response.data.getALLcustomer);
-      setError("");
-    } catch (error) {
-      setError(error.response?.data?.message || "Server error");
-    }
-  };
+  try {
+    const response = await axios.get(
+      "https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/customers/customer",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    setCustomer(response.data.data);
+    setError("");
+  } catch (error) {
+    setError(error.response?.data?.message || "Server error");
+  }
+};
+
   useEffect(() => {
     gettingcustomer();
   }, [refresh]);

@@ -99,7 +99,7 @@ function AddOrder({ onClose }) {
 
     try {
       const response = await axios.get(
-        "http://localhost:5001/products/product",
+        "https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/products/product",
         {
           headers: {
             Authorization: `Bearer ${token}`,

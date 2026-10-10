@@ -23,7 +23,7 @@ function AddProductModel({ onClose }) {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
-        "http://localhost:5001/products/product",
+        "https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/products/product",
         {
           title,
           description,

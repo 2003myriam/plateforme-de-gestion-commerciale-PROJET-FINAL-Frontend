@@ -13,7 +13,7 @@ function AddCtagoryModel({ onClose }) {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
-        "http://localhost:5001/category/category",
+        "https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/category/category",
         {
           name,
         },

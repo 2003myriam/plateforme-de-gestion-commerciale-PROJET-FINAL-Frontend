@@ -17,7 +17,7 @@ function AddPersonnelTask({ onClose }) {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
-        "http://localhost:5001/persotasks/persotask",
+        "https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/persotasks/persotask",
         {
           title,
           description,

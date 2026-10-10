@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
-
+import addProduct from "../../assets/add-product.png";
+import register from "../../assets/register.png";
+import task from "../../assets/task.png";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "./Swiper.css"
@@ -29,19 +31,19 @@ function HeroSlider() {
     >
       <SwiperSlide>
         
-        <img src="/src/assets/add-product.png" alt="" />
+        <img src={addProduct}  alt="" />
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src="/src/assets/register.png" alt="" />
+        <img src={register} alt="" />
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src="/src/assets/task.png" alt="" />
+        <img src={task} alt="" />
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src="/src/assets/register.png" alt="" />
+        <img src= {register} alt="" />
       </SwiperSlide>
     </Swiper>
   );

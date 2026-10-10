@@ -24,7 +24,7 @@ function Product() {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.get(
-        "http://localhost:5001/products/product",
+        "https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/products/product",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -32,7 +32,7 @@ function Product() {
         },
       );
 
-      setProducts(response.data.getALLproduct);
+      setProducts(response.data.data);
       setError("");
     } catch (error) {
       setError(error.response?.data?.message || "Server error");
@@ -49,7 +49,7 @@ function Product() {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.delete(
-        `http://localhost:5001/products/product/${id}`,
+        `https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/products/product/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

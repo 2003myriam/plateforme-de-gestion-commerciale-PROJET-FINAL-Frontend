@@ -21,13 +21,16 @@ function LoginUser() {
 
   const loginUser = async () => {
     try {
-      const response = await axios.post("http://localhost:5001/user/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://plateforme-de-gestion-commerciale-projet-8pwf.onrender.com/user/login",
+        {
+          email,
+          password,
+        },
+      );
 
       localStorage.setItem("token", response.data.token);
-      
+
       setError("");
       navigate("/dashboard");
     } catch (error) {
@@ -61,7 +64,7 @@ function LoginUser() {
           </label>
 
           {success && <p className="success-message">{success}</p>}
-        {error && <p className="error-message">{error}</p>}
+          {error && <p className="error-message">{error}</p>}
 
           <button className="submit-btn" onClick={loginUser}>
             Login
@@ -75,7 +78,10 @@ function LoginUser() {
 
       {/* RIGHT SIDE */}
       <div className="register-droit">
-        <h1>The <span id="dashboard"> dashboard </span> that helps your business grow.</h1>
+        <h1>
+          The <span id="dashboard"> dashboard </span> that helps your business
+          grow.
+        </h1>
 
         <p>
           Track sales, customers, inventory, assign tasks and analyze
@@ -87,13 +93,14 @@ function LoginUser() {
             <FaCheckCircle className="icone-log" /> Real-time order tracking
           </li>
           <li>
-            <FaCheckCircle className="icone-log"/> Automated stock alerts
+            <FaCheckCircle className="icone-log" /> Automated stock alerts
           </li>
           <li>
-            <FaCheckCircle className="icone-log"/> Smart task assignment
+            <FaCheckCircle className="icone-log" /> Smart task assignment
           </li>
           <li>
-            <FaCheckCircle className="icone-log"/> Planning and schedule management
+            <FaCheckCircle className="icone-log" /> Planning and schedule
+            management
           </li>
         </ul>
       </div>
